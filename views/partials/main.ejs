@@ -1,0 +1,53 @@
+<% if (locals.work) { %>
+<div>
+  <h1 class="header">Work List</h1>
+</div>
+<div class="userBox">
+  <% for( let index = 0; index < userItemArrayWork.length; index++ ) { %>
+  <div class="userEntry">
+    <input type="checkbox" />
+    <p><%=userItemArrayWork[index]%></p>
+  </div>
+  <% } %>
+  <div>
+    <form class="item" action="/work" method="POST">
+      <input
+        type="text"
+        name="newItem"
+        placeholder="New Item"
+        autocomplete="off"
+      />
+      <button type="submit" name="list" value="Work">+</button>
+    </form>
+  </div>
+</div>
+<% } else { %>
+<div>
+  <h1 class="header"><%=week%>, <%=datE%> <%=month %></h1>
+</div>
+<div class="userBox">
+  <% for( let index = 0; index < userItemArray.length; index++ ) { %>
+  <div class="userEntry">
+    <input type="checkbox" />
+    <p><%=userItemArray[index]%></p>
+  </div>
+  <% } %>
+  <div>
+    <form class="item" action="/" method="POST">
+      <input
+        type="text"
+        name="newItem"
+        placeholder="New Item"
+        autocomplete="off"
+      />
+      <button
+        type="submit"
+        name="list"
+        value="<%=week%>, <%=datE%> <%=month %>"
+      >
+        +
+      </button>
+    </form>
+  </div>
+</div>
+<% } %>
